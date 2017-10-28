@@ -1,0 +1,24 @@
+lightbox:
+  version: 1.0.0
+  js:
+    js/lightbox.js: {preprocess: false}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/jquery.once
+
+colorbox:
+  version: 1.6.4
+  css:
+    base:
+      css/colorbox.css: {}
+  js:
+    js/colorbox.js: {preprocess: false}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/jquery.once

@@ -1,0 +1,22 @@
+# Lightbox routing definition
+entity.lightbox.canonical:
+  route_name: entity.lightbox.canonical
+  base_route: entity.lightbox.canonical
+  title: 'View'
+
+entity.lightbox.edit_form:
+  route_name: entity.lightbox.edit_form
+  base_route: entity.lightbox.canonical
+  title: 'Edit'
+
+entity.lightbox.version_history:
+  route_name: entity.lightbox.version_history
+  base_route: entity.lightbox.canonical
+  title: 'Revisions'
+
+entity.lightbox.delete_form:
+  route_name:  entity.lightbox.delete_form
+  base_route:  entity.lightbox.canonical
+  title: Delete
+  weight: 10
+

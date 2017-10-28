@@ -1,0 +1,37 @@
+add lightbox entities:
+  title: 'Create new Lightbox entities'
+
+administer lightbox entities:
+  title: 'Administer Lightbox entities'
+  description: 'Allow to access the administration form to configure Lightbox entities.'
+  restrict access: true
+
+delete lightbox entities:
+  title: 'Delete Lightbox entities'
+
+edit lightbox entities:
+  title: 'Edit Lightbox entities'
+
+access lightbox overview:
+  title: 'Access the Lightbox overview page'
+
+view published lightbox entities:
+  title: 'View published Lightbox entities'
+
+view unpublished lightbox entities:
+  title: 'View unpublished Lightbox entities'
+
+view all lightbox revisions:
+  title: 'View all Lightbox revisions'
+
+revert all lightbox revisions:
+  title: 'Revert all Lightbox revisions'
+  description: 'Role requires permission <em>view Lightbox revisions</em> and <em>edit rights</em> for lightbox entities in question or <em>administer lightbox entities</em>.'
+
+delete all lightbox revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Lightbox revisions</em> and <em>delete rights</em> for lightbox entities in question or <em>administer lightbox entities</em>.'
+
+access content:
+  title: 'Access Content'
+  description: 'Read all content'

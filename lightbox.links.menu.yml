@@ -1,0 +1,8 @@
+
+# Lightbox menu items definition
+entity.lightbox.collection:
+  title: 'Lightbox list'
+  route_name: entity.lightbox.collection
+  description: 'List Lightbox entities'
+  parent: system.admin_structure
+  weight: 100
