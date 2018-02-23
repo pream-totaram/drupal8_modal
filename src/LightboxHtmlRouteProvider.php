@@ -7,7 +7,7 @@ use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
 use Symfony\Component\Routing\Route;
 
 /**
- * Provides routes for Lightbox entities.
+ * Provides routes for Modal entities.
  *
  * @see \Drupal\Core\Entity\Routing\AdminHtmlRouteProvider
  * @see \Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider
@@ -62,7 +62,7 @@ class LightboxHtmlRouteProvider extends AdminHtmlRouteProvider {
           '_title' => "{$entity_type->getLabel()} revisions",
           '_controller' => '\Drupal\lightbox\Controller\LightboxController::revisionOverview',
         ])
-        ->setRequirement('_permission', 'access lightbox revisions')
+        ->setRequirement('_permission', 'access modal revisions')
         ->setOption('_admin_route', TRUE);
 
       return $route;
@@ -86,7 +86,7 @@ class LightboxHtmlRouteProvider extends AdminHtmlRouteProvider {
           '_controller' => '\Drupal\lightbox\Controller\LightboxController::revisionShow',
           '_title_callback' => '\Drupal\lightbox\Controller\LightboxController::revisionPageTitle',
         ])
-        ->setRequirement('_permission', 'access lightbox revisions')
+        ->setRequirement('_permission', 'access modal revisions')
         ->setOption('_admin_route', TRUE);
 
       return $route;
@@ -110,7 +110,7 @@ class LightboxHtmlRouteProvider extends AdminHtmlRouteProvider {
           '_form' => '\Drupal\lightbox\Form\LightboxRevisionRevertForm',
           '_title' => 'Revert to earlier revision',
         ])
-        ->setRequirement('_permission', 'revert all lightbox revisions')
+        ->setRequirement('_permission', 'revert all modal revisions')
         ->setOption('_admin_route', TRUE);
 
       return $route;
@@ -134,7 +134,7 @@ class LightboxHtmlRouteProvider extends AdminHtmlRouteProvider {
           '_form' => '\Drupal\lightbox\Form\LightboxRevisionDeleteForm',
           '_title' => 'Delete earlier revision',
         ])
-        ->setRequirement('_permission', 'delete all lightbox revisions')
+        ->setRequirement('_permission', 'delete all modal revisions')
         ->setOption('_admin_route', TRUE);
 
       return $route;
@@ -158,7 +158,7 @@ class LightboxHtmlRouteProvider extends AdminHtmlRouteProvider {
           '_form' => '\Drupal\lightbox\Form\LightboxRevisionRevertTranslationForm',
           '_title' => 'Revert to earlier revision of a translation',
         ])
-        ->setRequirement('_permission', 'revert all lightbox revisions')
+        ->setRequirement('_permission', 'revert all modal revisions')
         ->setOption('_admin_route', TRUE);
 
       return $route;

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains lightbox.page.inc.
+ * Contains modal.page.inc.
  *
  * Page callback for Lightbox entities.
  */
@@ -12,7 +12,7 @@ use Drupal\Core\Render\Element;
 /**
  * Prepares variables for Lightbox templates.
  *
- * Default template: lightbox.html.twig.
+ * Default template: modal.html.twig.
  *
  * @param array $variables
  *   An associative array containing:
@@ -21,7 +21,7 @@ use Drupal\Core\Render\Element;
  */
 function template_preprocess_lightbox(array &$variables) {
   // Fetch Lightbox Entity Object.
-  $lightbox = $variables['elements']['#lightbox'];
+  $lightbox = $variables['elements']['#modal'];
 
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {

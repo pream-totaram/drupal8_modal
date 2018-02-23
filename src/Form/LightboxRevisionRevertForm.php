@@ -11,22 +11,22 @@ use Drupal\lightbox\Entity\LightboxInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a form for reverting a Lightbox revision.
+ * Provides a form for reverting a Modal revision.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 class LightboxRevisionRevertForm extends ConfirmFormBase {
 
 
   /**
-   * The Lightbox revision.
+   * The Modal revision.
    *
    * @var \Drupal\lightbox\Entity\LightboxInterface
    */
   protected $revision;
 
   /**
-   * The Lightbox storage.
+   * The Modal storage.
    *
    * @var \Drupal\Core\Entity\EntityStorageInterface
    */
@@ -43,7 +43,7 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
    * Constructs a new LightboxRevisionRevertForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
-   *   The Lightbox storage.
+   *   The Modal storage.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter service.
    */
@@ -57,7 +57,7 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('entity.manager')->getStorage('lightbox'),
+      $container->get('entity.manager')->getStorage('modal'),
       $container->get('date.formatter')
     );
   }
@@ -80,7 +80,7 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('entity.lightbox.version_history', ['lightbox' => $this->revision->id()]);
+    return new Url('entity.modal.version_history', ['modal' => $this->revision->id()]);
   }
 
   /**
@@ -119,11 +119,11 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
     $this->revision->revision_log = t('Copy of the revision from %date.', ['%date' => $this->dateFormatter->format($original_revision_timestamp)]);
     $this->revision->save();
 
-    $this->logger('content')->notice('Lightbox: reverted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
-    drupal_set_message(t('Lightbox %title has been reverted to the revision from %revision-date.', ['%title' => $this->revision->label(), '%revision-date' => $this->dateFormatter->format($original_revision_timestamp)]));
+    $this->logger('content')->notice('Modal: reverted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
+    drupal_set_message(t('Modal %title has been reverted to the revision from %revision-date.', ['%title' => $this->revision->label(), '%revision-date' => $this->dateFormatter->format($original_revision_timestamp)]));
     $form_state->setRedirect(
-      'entity.lightbox.version_history',
-      ['lightbox' => $this->revision->id()]
+      'entity.modal.version_history',
+      ['modal' => $this->revision->id()]
     );
   }
 

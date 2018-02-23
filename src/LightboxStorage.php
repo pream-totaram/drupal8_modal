@@ -8,12 +8,12 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\lightbox\Entity\LightboxInterface;
 
 /**
- * Defines the storage handler class for Lightbox entities.
+ * Defines the storage handler class for Modal entities.
  *
  * This extends the base storage class, adding required special handling for
- * Lightbox entities.
+ * Modal entities.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 class LightboxStorage extends SqlContentEntityStorage implements LightboxStorageInterface {
 

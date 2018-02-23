@@ -1,5 +1,5 @@
-name: Lightbox
-description: A lightbox which can be customized
+name: Modal
+description: A modal which can be customized
 package: WithPulp
 type: module
 version: 1.0

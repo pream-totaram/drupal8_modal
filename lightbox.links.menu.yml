@@ -1,8 +1,8 @@
 
-# Lightbox menu items definition
+# Modal menu items definition
 entity.lightbox.collection:
-  title: 'Lightbox list'
-  route_name: entity.lightbox.collection
-  description: 'List Lightbox entities'
+  title: 'Modal list'
+  route_name: entity.modal.collection
+  description: 'List Modal entities'
   parent: system.admin_structure
   weight: 100

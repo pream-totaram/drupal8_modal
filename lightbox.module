@@ -2,8 +2,8 @@
 
 function lightbox_page_attachments(&$vars) {
     if(\Drupal::service('current_route_match')->getRouteName() === 'view.home.page_1') {
-        $vars['#attached']['library'][] = 'lightbox/colorbox';
-        $vars['#attached']['library'][] = 'lightbox/lightbox';
+        $vars['#attached']['library'][] = 'modal/colorbox';
+        $vars['#attached']['library'][] = 'modal/modal';
     }
 }
 

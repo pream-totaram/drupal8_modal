@@ -5,7 +5,7 @@ namespace Drupal\lightbox\Entity;
 use Drupal\views\EntityViewsData;
 
 /**
- * Provides Views data for Lightbox entities.
+ * Provides Views data for Modal entities.
  */
 class LightboxViewsData extends EntityViewsData {
 

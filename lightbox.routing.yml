@@ -1,5 +1,5 @@
 lightbox.content:
-  path: '/lightbox/content'
+  path: '/modal/content'
   defaults:
     _controller: '\Drupal\lightbox\Controller\LightboxController::content'
     _title: 'Hello World'

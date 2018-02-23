@@ -8,34 +8,34 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\lightbox\Entity\LightboxInterface;
 
 /**
- * Defines the storage handler class for Lightbox entities.
+ * Defines the storage handler class for Modal entities.
  *
  * This extends the base storage class, adding required special handling for
- * Lightbox entities.
+ * Modal entities.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 interface LightboxStorageInterface extends ContentEntityStorageInterface {
 
   /**
-   * Gets a list of Lightbox revision IDs for a specific Lightbox.
+   * Gets a list of Modal revision IDs for a specific Modal.
    *
    * @param \Drupal\lightbox\Entity\LightboxInterface $entity
-   *   The Lightbox entity.
+   *   The Modal entity.
    *
    * @return int[]
-   *   Lightbox revision IDs (in ascending order).
+   *   Modal revision IDs (in ascending order).
    */
   public function revisionIds(LightboxInterface $entity);
 
   /**
-   * Gets a list of revision IDs having a given user as Lightbox author.
+   * Gets a list of revision IDs having a given user as Modal author.
    *
    * @param \Drupal\Core\Session\AccountInterface $account
    *   The user entity.
    *
    * @return int[]
-   *   Lightbox revision IDs (in ascending order).
+   *   Modal revision IDs (in ascending order).
    */
   public function userRevisionIds(AccountInterface $account);
 
@@ -43,7 +43,7 @@ interface LightboxStorageInterface extends ContentEntityStorageInterface {
    * Counts the number of revisions in the default language.
    *
    * @param \Drupal\lightbox\Entity\LightboxInterface $entity
-   *   The Lightbox entity.
+   *   The Modal entity.
    *
    * @return int
    *   The number of revisions in the default language.
@@ -51,7 +51,7 @@ interface LightboxStorageInterface extends ContentEntityStorageInterface {
   public function countDefaultLanguageRevisions(LightboxInterface $entity);
 
   /**
-   * Unsets the language for all Lightbox with the given language.
+   * Unsets the language for all Modal with the given language.
    *
    * @param \Drupal\Core\Language\LanguageInterface $language
    *   The language object.

@@ -5,7 +5,7 @@ namespace Drupal\lightbox\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
- * The lightbox block, content inside the lightbox
+ * The modal block, content inside the modal
  * 
  * @Block(
  *  id= "lightbox_block",

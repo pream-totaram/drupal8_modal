@@ -10,22 +10,22 @@ use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a form for deleting a Lightbox revision.
+ * Provides a form for deleting a Modal revision.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 class LightboxRevisionDeleteForm extends ConfirmFormBase {
 
 
   /**
-   * The Lightbox revision.
+   * The Modal revision.
    *
    * @var \Drupal\lightbox\Entity\LightboxInterface
    */
   protected $revision;
 
   /**
-   * The Lightbox storage.
+   * The Modal storage.
    *
    * @var \Drupal\Core\Entity\EntityStorageInterface
    */
@@ -57,7 +57,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
   public static function create(ContainerInterface $container) {
     $entity_manager = $container->get('entity.manager');
     return new static(
-      $entity_manager->getStorage('lightbox'),
+      $entity_manager->getStorage('modal'),
       $container->get('database')
     );
   }
@@ -80,7 +80,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('entity.lightbox.version_history', ['lightbox' => $this->revision->id()]);
+    return new Url('entity.modal.version_history', ['modal' => $this->revision->id()]);
   }
 
   /**
@@ -106,16 +106,16 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->LightboxStorage->deleteRevision($this->revision->getRevisionId());
 
-    $this->logger('content')->notice('Lightbox: deleted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
-    drupal_set_message(t('Revision from %revision-date of Lightbox %title has been deleted.', ['%revision-date' => format_date($this->revision->getRevisionCreationTime()), '%title' => $this->revision->label()]));
+    $this->logger('content')->notice('Modal: deleted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
+    drupal_set_message(t('Revision from %revision-date of Modal %title has been deleted.', ['%revision-date' => format_date($this->revision->getRevisionCreationTime()), '%title' => $this->revision->label()]));
     $form_state->setRedirect(
-      'entity.lightbox.canonical',
-       ['lightbox' => $this->revision->id()]
+      'entity.modal.canonical',
+       ['modal' => $this->revision->id()]
     );
     if ($this->connection->query('SELECT COUNT(DISTINCT vid) FROM {lightbox_field_revision} WHERE id = :id', [':id' => $this->revision->id()])->fetchField() > 1) {
       $form_state->setRedirect(
-        'entity.lightbox.version_history',
-         ['lightbox' => $this->revision->id()]
+        'entity.modal.version_history',
+         ['modal' => $this->revision->id()]
       );
     }
   }

@@ -5,9 +5,9 @@ namespace Drupal\lightbox\Form;
 use Drupal\Core\Entity\ContentEntityDeleteForm;
 
 /**
- * Provides a form for deleting Lightbox entities.
+ * Provides a form for deleting Modal entities.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 class LightboxDeleteForm extends ContentEntityDeleteForm {
 

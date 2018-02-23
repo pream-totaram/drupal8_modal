@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\lightbox\Entity;
+namespace Drupal\modal\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -10,37 +10,37 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
 
 /**
- * Defines the Lightbox entity.
+ * Defines the Modal entity.
  *
- * @ingroup lightbox
+ * @ingroup modal
  *
  * @ContentEntityType(
- *   id = "lightbox",
- *   label = @Translation("Lightbox"),
+ *   id = "modal",
+ *   label = @Translation("Modal"),
  *   handlers = {
- *     "storage" = "Drupal\lightbox\LightboxStorage",
+ *     "storage" = "Drupal\modal\ModalStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\lightbox\LightboxListBuilder",
- *     "views_data" = "Drupal\lightbox\Entity\LightboxViewsData",
- *     "translation" = "Drupal\lightbox\LightboxTranslationHandler",
+ *     "list_builder" = "Drupal\modal\ModalListBuilder",
+ *     "views_data" = "Drupal\modal\Entity\ModalViewsData",
+ *     "translation" = "Drupal\modal\ModalTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\lightbox\Form\LightboxForm",
- *       "add" = "Drupal\lightbox\Form\LightboxForm",
- *       "edit" = "Drupal\lightbox\Form\LightboxForm",
- *       "delete" = "Drupal\lightbox\Form\LightboxDeleteForm",
+ *       "default" = "Drupal\modal\Form\ModalForm",
+ *       "add" = "Drupal\modal\Form\ModalForm",
+ *       "edit" = "Drupal\modal\Form\ModalForm",
+ *       "delete" = "Drupal\modal\Form\ModalDeleteForm",
  *     },
- *     "access" = "Drupal\lightbox\LightboxAccessControlHandler",
+ *     "access" = "Drupal\modal\ModalAccessControlHandler",
  *     "route_provider" = {
- *       "html" = "Drupal\lightbox\LightboxHtmlRouteProvider",
+ *       "html" = "Drupal\modal\ModalHtmlRouteProvider",
  *     },
  *   },
- *   base_table = "lightbox",
- *   data_table = "lightbox_field_data",
- *   revision_table = "lightbox_revision",
- *   revision_data_table = "lightbox_field_revision",
+ *   base_table = "modal",
+ *   data_table = "modal_field_data",
+ *   revision_table = "modal_revision",
+ *   revision_data_table = "modal_field_revision",
  *   translatable = TRUE,
- *   admin_permission = "administer lightbox entities",
+ *   admin_permission = "administer modal entities",
  *   entity_keys = {
  *     "id" = "id",
  *     "revision" = "vid",
@@ -51,20 +51,20 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/lightbox/{lightbox}",
- *     "add-form" = "/admin/structure/lightbox/add",
- *     "edit-form" = "/admin/structure/lightbox/{lightbox}/edit",
- *     "delete-form" = "/admin/structure/lightbox/{lightbox}/delete",
- *     "version-history" = "/admin/structure/lightbox/{lightbox}/revisions",
- *     "revision" = "/admin/structure/lightbox/{lightbox}/revisions/{lightbox_revision}/view",
- *     "revision_revert" = "/admin/structure/lightbox/{lightbox}/revisions/{lightbox_revision}/revert",
- *     "translation_revert" = "/admin/structure/lightbox/{lightbox}/revisions/{lightbox_revision}/revert/{langcode}",
- *     "revision_delete" = "/admin/structure/lightbox/{lightbox}/revisions/{lightbox_revision}/delete",
- *     "collection" = "/admin/structure/lightbox",
+ *     "canonical" = "/admin/structure/modal/{modal}",
+ *     "add-form" = "/admin/structure/modal/add",
+ *     "edit-form" = "/admin/structure/modal/{modal}/edit",
+ *     "delete-form" = "/admin/structure/modal/{modal}/delete",
+ *     "version-history" = "/admin/structure/modal/{modal}/revisions",
+ *     "revision" = "/admin/structure/modal/{modal}/revisions/{modal_revision}/view",
+ *     "revision_revert" = "/admin/structure/modal/{modal}/revisions/{modal_revision}/revert",
+ *     "translation_revert" = "/admin/structure/modal/{modal}/revisions/{modal_revision}/revert/{langcode}",
+ *     "revision_delete" = "/admin/structure/modal/{modal}/revisions/{modal_revision}/delete",
+ *     "collection" = "/admin/structure/modal",
  *   },
  * )
  */
-class Lightbox extends RevisionableContentEntityBase implements LightboxInterface {
+class Modal extends RevisionableContentEntityBase implements ModalInterface {
 
   use EntityChangedTrait;
 
@@ -93,7 +93,7 @@ class Lightbox extends RevisionableContentEntityBase implements LightboxInterfac
       }
     }
 
-    // If no revision author has been set explicitly, make the lightbox owner the
+    // If no revision author has been set explicitly, make the modal owner the
     // revision author.
     if (!$this->getRevisionUser()) {
       $this->setRevisionUserId($this->getOwnerId());
@@ -183,7 +183,7 @@ class Lightbox extends RevisionableContentEntityBase implements LightboxInterfac
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
-      ->setDescription(t('The user ID of author of the Lightbox entity.'))
+      ->setDescription(t('The user ID of author of the Modal entity.'))
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
@@ -208,7 +208,7 @@ class Lightbox extends RevisionableContentEntityBase implements LightboxInterfac
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Lightbox entity.'))
+      ->setDescription(t('The name of the Modal entity.'))
       ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,
@@ -263,7 +263,7 @@ class Lightbox extends RevisionableContentEntityBase implements LightboxInterfac
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
-      ->setDescription(t('A boolean indicating whether the Lightbox is published.'))
+      ->setDescription(t('A boolean indicating whether the Modal is published.'))
       ->setRevisionable(TRUE)
       ->setDefaultValue(TRUE);
 

@@ -10,9 +10,9 @@ use Drupal\lightbox\Entity\LightboxInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a form for reverting a Lightbox revision for a single translation.
+ * Provides a form for reverting a Modal revision for a single translation.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
 
@@ -35,7 +35,7 @@ class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
    * Constructs a new LightboxRevisionRevertTranslationForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
-   *   The Lightbox storage.
+   *   The Modal storage.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter service.
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
@@ -51,7 +51,7 @@ class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('entity.manager')->getStorage('lightbox'),
+      $container->get('entity.manager')->getStorage('modal'),
       $container->get('date.formatter'),
       $container->get('language_manager')
     );

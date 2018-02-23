@@ -6,9 +6,9 @@ use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Form controller for Lightbox edit forms.
+ * Form controller for Modal edit forms.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 class LightboxForm extends ContentEntityForm {
 
@@ -16,7 +16,7 @@ class LightboxForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\lightbox\Entity\Lightbox */
+    /* @var $entity \Drupal\lightbox\Entity\Modal */
     $form = parent::buildForm($form, $form_state);
     $validators= [
       'file_validate_extensions' => ['jpg', 'png', 'gif', 'jpeg']
@@ -69,17 +69,17 @@ class LightboxForm extends ContentEntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label Lightbox.', [
+        drupal_set_message($this->t('Created the %label Modal.', [
           '%label' => $entity->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label Lightbox.', [
+        drupal_set_message($this->t('Saved the %label Modal.', [
           '%label' => $entity->label(),
         ]));
     }
-    $form_state->setRedirect('entity.lightbox.canonical', ['lightbox' => $entity->id()]);
+    $form_state->setRedirect('entity.modal.canonical', ['modal' => $entity->id()]);
   }
 
 }

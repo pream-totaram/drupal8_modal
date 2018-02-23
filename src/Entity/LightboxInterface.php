@@ -8,75 +8,75 @@ use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\user\EntityOwnerInterface;
 
 /**
- * Provides an interface for defining Lightbox entities.
+ * Provides an interface for defining Modal entities.
  *
- * @ingroup lightbox
+ * @ingroup modal
  */
 interface LightboxInterface extends RevisionableInterface, RevisionLogInterface, EntityChangedInterface, EntityOwnerInterface {
 
   // Add get/set methods for your configuration properties here.
 
   /**
-   * Gets the Lightbox name.
+   * Gets the Modal name.
    *
    * @return string
-   *   Name of the Lightbox.
+   *   Name of the Modal.
    */
   public function getName();
 
   /**
-   * Sets the Lightbox name.
+   * Sets the Modal name.
    *
    * @param string $name
-   *   The Lightbox name.
+   *   The Modal name.
    *
    * @return \Drupal\lightbox\Entity\LightboxInterface
-   *   The called Lightbox entity.
+   *   The called Modal entity.
    */
   public function setName($name);
 
   /**
-   * Gets the Lightbox creation timestamp.
+   * Gets the Modal creation timestamp.
    *
    * @return int
-   *   Creation timestamp of the Lightbox.
+   *   Creation timestamp of the Modal.
    */
   public function getCreatedTime();
 
   /**
-   * Sets the Lightbox creation timestamp.
+   * Sets the Modal creation timestamp.
    *
    * @param int $timestamp
-   *   The Lightbox creation timestamp.
+   *   The Modal creation timestamp.
    *
    * @return \Drupal\lightbox\Entity\LightboxInterface
-   *   The called Lightbox entity.
+   *   The called Modal entity.
    */
   public function setCreatedTime($timestamp);
 
   /**
-   * Returns the Lightbox published status indicator.
+   * Returns the Modal published status indicator.
    *
-   * Unpublished Lightbox are only visible to restricted users.
+   * Unpublished Modal are only visible to restricted users.
    *
    * @return bool
-   *   TRUE if the Lightbox is published.
+   *   TRUE if the Modal is published.
    */
   public function isPublished();
 
   /**
-   * Sets the published status of a Lightbox.
+   * Sets the published status of a Modal.
    *
    * @param bool $published
-   *   TRUE to set this Lightbox to published, FALSE to set it to unpublished.
+   *   TRUE to set this Modal to published, FALSE to set it to unpublished.
    *
    * @return \Drupal\lightbox\Entity\LightboxInterface
-   *   The called Lightbox entity.
+   *   The called Modal entity.
    */
   public function setPublished($published);
 
   /**
-   * Gets the Lightbox revision creation timestamp.
+   * Gets the Modal revision creation timestamp.
    *
    * @return int
    *   The UNIX timestamp of when this revision was created.
@@ -84,18 +84,18 @@ interface LightboxInterface extends RevisionableInterface, RevisionLogInterface,
   public function getRevisionCreationTime();
 
   /**
-   * Sets the Lightbox revision creation timestamp.
+   * Sets the Modal revision creation timestamp.
    *
    * @param int $timestamp
    *   The UNIX timestamp of when this revision was created.
    *
    * @return \Drupal\lightbox\Entity\LightboxInterface
-   *   The called Lightbox entity.
+   *   The called Modal entity.
    */
   public function setRevisionCreationTime($timestamp);
 
   /**
-   * Gets the Lightbox revision author.
+   * Gets the Modal revision author.
    *
    * @return \Drupal\user\UserInterface
    *   The user entity for the revision author.
@@ -103,13 +103,13 @@ interface LightboxInterface extends RevisionableInterface, RevisionLogInterface,
   public function getRevisionUser();
 
   /**
-   * Sets the Lightbox revision author.
+   * Sets the Modal revision author.
    *
    * @param int $uid
    *   The user ID of the revision author.
    *
    * @return \Drupal\lightbox\Entity\LightboxInterface
-   *   The called Lightbox entity.
+   *   The called Modal entity.
    */
   public function setRevisionUserId($uid);
 

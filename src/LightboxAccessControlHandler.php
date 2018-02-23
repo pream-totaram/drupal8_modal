@@ -8,9 +8,9 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 
 /**
- * Access controller for the Lightbox entity.
+ * Access controller for the Modal entity.
  *
- * @see \Drupal\lightbox\Entity\Lightbox.
+ * @see \Drupal\lightbox\Entity\Modal.
  */
 class LightboxAccessControlHandler extends EntityAccessControlHandler {
 
@@ -22,15 +22,15 @@ class LightboxAccessControlHandler extends EntityAccessControlHandler {
     switch ($operation) {
       case 'view':
         if (!$entity->isPublished()) {
-          return AccessResult::allowedIfHasPermission($account, 'view unpublished lightbox entities');
+          return AccessResult::allowedIfHasPermission($account, 'view unpublished modal entities');
         }
-        return AccessResult::allowedIfHasPermission($account, 'view published lightbox entities');
+        return AccessResult::allowedIfHasPermission($account, 'view published modal entities');
 
       case 'update':
-        return AccessResult::allowedIfHasPermission($account, 'edit lightbox entities');
+        return AccessResult::allowedIfHasPermission($account, 'edit modal entities');
 
       case 'delete':
-        return AccessResult::allowedIfHasPermission($account, 'delete lightbox entities');
+        return AccessResult::allowedIfHasPermission($account, 'delete modal entities');
     }
 
     // Unknown operation, no opinion.
@@ -41,7 +41,7 @@ class LightboxAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-    return AccessResult::allowedIfHasPermission($account, 'add lightbox entities');
+    return AccessResult::allowedIfHasPermission($account, 'add modal entities');
   }
 
 }

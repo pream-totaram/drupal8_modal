@@ -1,5 +1,5 @@
 entity.lightbox.add_form:
-  route_name: entity.lightbox.add_form
-  title: 'Add Lightbox'
+  route_name: entity.modal.add_form
+  title: 'Add Modal'
   appears_on:
-    - entity.lightbox.collection
+    - entity.modal.collection
