@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\lightbox\Entity;
+namespace Drupal\modal\Entity;
 
 use Drupal\Core\Entity\RevisionLogInterface;
 use Drupal\Core\Entity\RevisionableInterface;
@@ -12,7 +12,7 @@ use Drupal\user\EntityOwnerInterface;
  *
  * @ingroup modal
  */
-interface LightboxInterface extends RevisionableInterface, RevisionLogInterface, EntityChangedInterface, EntityOwnerInterface {
+interface ModalInterface extends RevisionableInterface, RevisionLogInterface, EntityChangedInterface, EntityOwnerInterface {
 
   // Add get/set methods for your configuration properties here.
 
@@ -30,7 +30,7 @@ interface LightboxInterface extends RevisionableInterface, RevisionLogInterface,
    * @param string $name
    *   The Modal name.
    *
-   * @return \Drupal\lightbox\Entity\LightboxInterface
+   * @return \Drupal\modal\Entity\ModalInterface
    *   The called Modal entity.
    */
   public function setName($name);
@@ -49,7 +49,7 @@ interface LightboxInterface extends RevisionableInterface, RevisionLogInterface,
    * @param int $timestamp
    *   The Modal creation timestamp.
    *
-   * @return \Drupal\lightbox\Entity\LightboxInterface
+   * @return \Drupal\modal\Entity\ModalInterface
    *   The called Modal entity.
    */
   public function setCreatedTime($timestamp);
@@ -70,7 +70,7 @@ interface LightboxInterface extends RevisionableInterface, RevisionLogInterface,
    * @param bool $published
    *   TRUE to set this Modal to published, FALSE to set it to unpublished.
    *
-   * @return \Drupal\lightbox\Entity\LightboxInterface
+   * @return \Drupal\modal\Entity\ModalInterface
    *   The called Modal entity.
    */
   public function setPublished($published);
@@ -89,7 +89,7 @@ interface LightboxInterface extends RevisionableInterface, RevisionLogInterface,
    * @param int $timestamp
    *   The UNIX timestamp of when this revision was created.
    *
-   * @return \Drupal\lightbox\Entity\LightboxInterface
+   * @return \Drupal\modal\Entity\ModalInterface
    *   The called Modal entity.
    */
   public function setRevisionCreationTime($timestamp);
@@ -108,7 +108,7 @@ interface LightboxInterface extends RevisionableInterface, RevisionLogInterface,
    * @param int $uid
    *   The user ID of the revision author.
    *
-   * @return \Drupal\lightbox\Entity\LightboxInterface
+   * @return \Drupal\modal\Entity\ModalInterface
    *   The called Modal entity.
    */
   public function setRevisionUserId($uid);

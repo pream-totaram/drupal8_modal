@@ -1,6 +1,6 @@
 
 # Modal menu items definition
-entity.lightbox.collection:
+entity.modal.collection:
   title: 'Modal list'
   route_name: entity.modal.collection
   description: 'List Modal entities'

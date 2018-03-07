@@ -1,7 +1,7 @@
-lightbox.content:
+modal.content:
   path: '/modal/content'
   defaults:
-    _controller: '\Drupal\lightbox\Controller\LightboxController::content'
+    _controller: '\Drupal\modal\Controller\ModalController::content'
     _title: 'Hello World'
   requirements:
     _permission: 'access content'

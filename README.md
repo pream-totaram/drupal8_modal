@@ -1,5 +1,5 @@
-# Lightbox  
-WithPulp custom lightbox module
+# Modal
+WithPulp custom modal module
 
 ## What is needed?
 
@@ -16,4 +16,4 @@ WithPulp custom lightbox module
 - Appear on page load
 - Appear once every 24 hours
     - Set a cookie that expires in 24 hours
-    - Don't show lightbox if the cookie exists
+    - Don't show modal if the cookie exists

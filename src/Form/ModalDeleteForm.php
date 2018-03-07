@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\lightbox\Form;
+namespace Drupal\modal\Form;
 
 use Drupal\Core\Entity\ContentEntityDeleteForm;
 
@@ -9,7 +9,7 @@ use Drupal\Core\Entity\ContentEntityDeleteForm;
  *
  * @ingroup modal
  */
-class LightboxDeleteForm extends ContentEntityDeleteForm {
+class ModalDeleteForm extends ContentEntityDeleteForm {
 
 
 }

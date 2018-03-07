@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\lightbox\Form;
+namespace Drupal\modal\Form;
 
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityStorageInterface;
@@ -14,13 +14,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @ingroup modal
  */
-class LightboxRevisionDeleteForm extends ConfirmFormBase {
+class ModalRevisionDeleteForm extends ConfirmFormBase {
 
 
   /**
    * The Modal revision.
    *
-   * @var \Drupal\lightbox\Entity\LightboxInterface
+   * @var \Drupal\modal\Entity\ModalInterface
    */
   protected $revision;
 
@@ -29,7 +29,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
    *
    * @var \Drupal\Core\Entity\EntityStorageInterface
    */
-  protected $LightboxStorage;
+  protected $ModalStorage;
 
   /**
    * The database connection.
@@ -39,7 +39,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
   protected $connection;
 
   /**
-   * Constructs a new LightboxRevisionDeleteForm.
+   * Constructs a new ModalRevisionDeleteForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
    *   The entity storage.
@@ -47,7 +47,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
    *   The database connection.
    */
   public function __construct(EntityStorageInterface $entity_storage, Connection $connection) {
-    $this->LightboxStorage = $entity_storage;
+    $this->ModalStorage = $entity_storage;
     $this->connection = $connection;
   }
 
@@ -66,7 +66,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'lightbox_revision_delete_confirm';
+    return 'modal_revision_delete_confirm';
   }
 
   /**
@@ -93,8 +93,8 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $lightbox_revision = NULL) {
-    $this->revision = $this->LightboxStorage->loadRevision($lightbox_revision);
+  public function buildForm(array $form, FormStateInterface $form_state, $modal_revision = NULL) {
+    $this->revision = $this->ModalStorage->loadRevision($modal_revision);
     $form = parent::buildForm($form, $form_state);
 
     return $form;
@@ -104,7 +104,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->LightboxStorage->deleteRevision($this->revision->getRevisionId());
+    $this->ModalStorage->deleteRevision($this->revision->getRevisionId());
 
     $this->logger('content')->notice('Modal: deleted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
     drupal_set_message(t('Revision from %revision-date of Modal %title has been deleted.', ['%revision-date' => format_date($this->revision->getRevisionCreationTime()), '%title' => $this->revision->label()]));
@@ -112,7 +112,7 @@ class LightboxRevisionDeleteForm extends ConfirmFormBase {
       'entity.modal.canonical',
        ['modal' => $this->revision->id()]
     );
-    if ($this->connection->query('SELECT COUNT(DISTINCT vid) FROM {lightbox_field_revision} WHERE id = :id', [':id' => $this->revision->id()])->fetchField() > 1) {
+    if ($this->connection->query('SELECT COUNT(DISTINCT vid) FROM {modal_field_revision} WHERE id = :id', [':id' => $this->revision->id()])->fetchField() > 1) {
       $form_state->setRedirect(
         'entity.modal.version_history',
          ['modal' => $this->revision->id()]

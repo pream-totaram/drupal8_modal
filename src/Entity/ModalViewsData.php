@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\lightbox\Entity;
+namespace Drupal\modal\Entity;
 
 use Drupal\views\EntityViewsData;
 
 /**
  * Provides Views data for Modal entities.
  */
-class LightboxViewsData extends EntityViewsData {
+class ModalViewsData extends EntityViewsData {
 
   /**
    * {@inheritdoc}

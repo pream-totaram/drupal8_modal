@@ -1,4 +1,4 @@
-entity.lightbox.add_form:
+entity.modal.add_form:
   route_name: entity.modal.add_form
   title: 'Add Modal'
   appears_on:

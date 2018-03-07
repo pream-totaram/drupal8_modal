@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\lightbox\Form;
+namespace Drupal\modal\Form;
 
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
-use Drupal\lightbox\Entity\LightboxInterface;
+use Drupal\modal\Entity\ModalInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @ingroup modal
  */
-class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
+class ModalRevisionRevertTranslationForm extends ModalRevisionRevertForm {
 
 
   /**
@@ -32,7 +32,7 @@ class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
   protected $languageManager;
 
   /**
-   * Constructs a new LightboxRevisionRevertTranslationForm.
+   * Constructs a new ModalRevisionRevertTranslationForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
    *   The Modal storage.
@@ -61,7 +61,7 @@ class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'lightbox_revision_revert_translation_confirm';
+    return 'modal_revision_revert_translation_confirm';
   }
 
   /**
@@ -74,9 +74,9 @@ class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $lightbox_revision = NULL, $langcode = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $modal_revision = NULL, $langcode = NULL) {
     $this->langcode = $langcode;
-    $form = parent::buildForm($form, $form_state, $lightbox_revision);
+    $form = parent::buildForm($form, $form_state, $modal_revision);
 
     $form['revert_untranslated_fields'] = [
       '#type' => 'checkbox',
@@ -90,11 +90,11 @@ class LightboxRevisionRevertTranslationForm extends LightboxRevisionRevertForm {
   /**
    * {@inheritdoc}
    */
-  protected function prepareRevertedRevision(LightboxInterface $revision, FormStateInterface $form_state) {
+  protected function prepareRevertedRevision(ModalInterface $revision, FormStateInterface $form_state) {
     $revert_untranslated_fields = $form_state->getValue('revert_untranslated_fields');
 
-    /** @var \Drupal\lightbox\Entity\LightboxInterface $default_revision */
-    $latest_revision = $this->LightboxStorage->load($revision->id());
+    /** @var \Drupal\modal\Entity\ModalInterface $default_revision */
+    $latest_revision = $this->ModalStorage->load($revision->id());
     $latest_revision_translation = $latest_revision->getTranslation($this->langcode);
 
     $revision_translation = $revision->getTranslation($this->langcode);

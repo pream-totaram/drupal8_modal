@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\lightbox\Form;
+namespace Drupal\modal\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
@@ -10,13 +10,13 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @ingroup modal
  */
-class LightboxForm extends ContentEntityForm {
+class ModalForm extends ContentEntityForm {
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\lightbox\Entity\Modal */
+    /* @var $entity \Drupal\modal\Entity\Modal */
     $form = parent::buildForm($form, $form_state);
     $validators= [
       'file_validate_extensions' => ['jpg', 'png', 'gif', 'jpeg']
@@ -29,7 +29,7 @@ class LightboxForm extends ContentEntityForm {
       '#size' => 50,
       '#description' => t('Background Image'),
       '#validators' => $validators,
-      '#upload_location' => 'public://lightbox_background/'
+      '#upload_location' => 'public://modal_background/'
     ];
 
     if (!$this->entity->isNew()) {

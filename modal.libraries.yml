@@ -1,7 +1,7 @@
-lightbox:
+modal:
   version: 1.0.0
   js:
-    js/lightbox.js: {preprocess: false}
+    js/modal.js: {preprocess: false}
   dependencies:
     - core/jquery
     - core/drupal

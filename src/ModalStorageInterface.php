@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\lightbox;
+namespace Drupal\modal;
 
 use Drupal\Core\Entity\ContentEntityStorageInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\lightbox\Entity\LightboxInterface;
+use Drupal\modal\Entity\ModalInterface;
 
 /**
  * Defines the storage handler class for Modal entities.
@@ -15,18 +15,18 @@ use Drupal\lightbox\Entity\LightboxInterface;
  *
  * @ingroup modal
  */
-interface LightboxStorageInterface extends ContentEntityStorageInterface {
+interface ModalStorageInterface extends ContentEntityStorageInterface {
 
   /**
    * Gets a list of Modal revision IDs for a specific Modal.
    *
-   * @param \Drupal\lightbox\Entity\LightboxInterface $entity
+   * @param \Drupal\modal\Entity\ModalInterface $entity
    *   The Modal entity.
    *
    * @return int[]
    *   Modal revision IDs (in ascending order).
    */
-  public function revisionIds(LightboxInterface $entity);
+  public function revisionIds(ModalInterface $entity);
 
   /**
    * Gets a list of revision IDs having a given user as Modal author.
@@ -42,13 +42,13 @@ interface LightboxStorageInterface extends ContentEntityStorageInterface {
   /**
    * Counts the number of revisions in the default language.
    *
-   * @param \Drupal\lightbox\Entity\LightboxInterface $entity
+   * @param \Drupal\modal\Entity\ModalInterface $entity
    *   The Modal entity.
    *
    * @return int
    *   The number of revisions in the default language.
    */
-  public function countDefaultLanguageRevisions(LightboxInterface $entity);
+  public function countDefaultLanguageRevisions(ModalInterface $entity);
 
   /**
    * Unsets the language for all Modal with the given language.

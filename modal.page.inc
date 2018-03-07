@@ -4,13 +4,13 @@
  * @file
  * Contains modal.page.inc.
  *
- * Page callback for Lightbox entities.
+ * Page callback for Modal entities.
  */
 
 use Drupal\Core\Render\Element;
 
 /**
- * Prepares variables for Lightbox templates.
+ * Prepares variables for Modal templates.
  *
  * Default template: modal.html.twig.
  *
@@ -19,9 +19,9 @@ use Drupal\Core\Render\Element;
  *   - elements: An associative array containing the user information and any
  *   - attributes: HTML attributes for the containing element.
  */
-function template_preprocess_lightbox(array &$variables) {
-  // Fetch Lightbox Entity Object.
-  $lightbox = $variables['elements']['#modal'];
+function template_preprocess_modal(array &$variables) {
+  // Fetch Modal Entity Object.
+  $modal = $variables['elements']['#modal'];
 
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {

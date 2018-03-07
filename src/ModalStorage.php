@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\lightbox;
+namespace Drupal\modal;
 
 use Drupal\Core\Entity\Sql\SqlContentEntityStorage;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\lightbox\Entity\LightboxInterface;
+use Drupal\modal\Entity\ModalInterface;
 
 /**
  * Defines the storage handler class for Modal entities.
@@ -15,14 +15,14 @@ use Drupal\lightbox\Entity\LightboxInterface;
  *
  * @ingroup modal
  */
-class LightboxStorage extends SqlContentEntityStorage implements LightboxStorageInterface {
+class ModalStorage extends SqlContentEntityStorage implements ModalStorageInterface {
 
   /**
    * {@inheritdoc}
    */
-  public function revisionIds(LightboxInterface $entity) {
+  public function revisionIds(ModalInterface $entity) {
     return $this->database->query(
-      'SELECT vid FROM {lightbox_revision} WHERE id=:id ORDER BY vid',
+      'SELECT vid FROM {modal_revision} WHERE id=:id ORDER BY vid',
       [':id' => $entity->id()]
     )->fetchCol();
   }
@@ -32,7 +32,7 @@ class LightboxStorage extends SqlContentEntityStorage implements LightboxStorage
    */
   public function userRevisionIds(AccountInterface $account) {
     return $this->database->query(
-      'SELECT vid FROM {lightbox_field_revision} WHERE uid = :uid ORDER BY vid',
+      'SELECT vid FROM {modal_field_revision} WHERE uid = :uid ORDER BY vid',
       [':uid' => $account->id()]
     )->fetchCol();
   }
@@ -40,8 +40,8 @@ class LightboxStorage extends SqlContentEntityStorage implements LightboxStorage
   /**
    * {@inheritdoc}
    */
-  public function countDefaultLanguageRevisions(LightboxInterface $entity) {
-    return $this->database->query('SELECT COUNT(*) FROM {lightbox_field_revision} WHERE id = :id AND default_langcode = 1', [':id' => $entity->id()])
+  public function countDefaultLanguageRevisions(ModalInterface $entity) {
+    return $this->database->query('SELECT COUNT(*) FROM {modal_field_revision} WHERE id = :id AND default_langcode = 1', [':id' => $entity->id()])
       ->fetchField();
   }
 
@@ -49,7 +49,7 @@ class LightboxStorage extends SqlContentEntityStorage implements LightboxStorage
    * {@inheritdoc}
    */
   public function clearRevisionsLanguage(LanguageInterface $language) {
-    return $this->database->update('lightbox_revision')
+    return $this->database->update('modal_revision')
       ->fields(['langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED])
       ->condition('langcode', $language->getId())
       ->execute();

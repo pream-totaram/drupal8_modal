@@ -1,13 +1,13 @@
 <?php
 
-function lightbox_page_attachments(&$vars) {
+function modal_page_attachments(&$vars) {
     if(\Drupal::service('current_route_match')->getRouteName() === 'view.home.page_1') {
         $vars['#attached']['library'][] = 'modal/colorbox';
         $vars['#attached']['library'][] = 'modal/modal';
     }
 }
 
-function lightbox_theme($existing, $type, $theme, $path) {
+function modal_theme($existing, $type, $theme, $path) {
     return [
         'output' => [
             'variables' => ['var' => null]

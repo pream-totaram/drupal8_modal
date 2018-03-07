@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\lightbox;
+namespace Drupal\modal;
 
 use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
@@ -10,15 +10,15 @@ use Drupal\Core\Access\AccessResult;
 /**
  * Access controller for the Modal entity.
  *
- * @see \Drupal\lightbox\Entity\Modal.
+ * @see \Drupal\modal\Entity\Modal.
  */
-class LightboxAccessControlHandler extends EntityAccessControlHandler {
+class ModalAccessControlHandler extends EntityAccessControlHandler {
 
   /**
    * {@inheritdoc}
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
-    /** @var \Drupal\lightbox\Entity\LightboxInterface $entity */
+    /** @var \Drupal\modal\Entity\ModalInterface $entity */
     switch ($operation) {
       case 'view':
         if (!$entity->isPublished()) {

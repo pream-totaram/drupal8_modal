@@ -1,20 +1,20 @@
-# Lightbox routing definition
-entity.lightbox.canonical:
+# Modal routing definition
+entity.modal.canonical:
   route_name: entity.modal.canonical
   base_route: entity.modal.canonical
   title: 'View'
 
-entity.lightbox.edit_form:
+entity.modal.edit_form:
   route_name: entity.modal.edit_form
   base_route: entity.modal.canonical
   title: 'Edit'
 
-entity.lightbox.version_history:
+entity.modal.version_history:
   route_name: entity.modal.version_history
   base_route: entity.modal.canonical
   title: 'Revisions'
 
-entity.lightbox.delete_form:
+entity.modal.delete_form:
   route_name:  entity.modal.delete_form
   base_route:  entity.modal.canonical
   title: Delete

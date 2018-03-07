@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\lightbox\Form;
+namespace Drupal\modal\Form;
 
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\lightbox\Entity\LightboxInterface;
+use Drupal\modal\Entity\ModalInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -15,13 +15,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @ingroup modal
  */
-class LightboxRevisionRevertForm extends ConfirmFormBase {
+class ModalRevisionRevertForm extends ConfirmFormBase {
 
 
   /**
    * The Modal revision.
    *
-   * @var \Drupal\lightbox\Entity\LightboxInterface
+   * @var \Drupal\modal\Entity\ModalInterface
    */
   protected $revision;
 
@@ -30,7 +30,7 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
    *
    * @var \Drupal\Core\Entity\EntityStorageInterface
    */
-  protected $LightboxStorage;
+  protected $ModalStorage;
 
   /**
    * The date formatter service.
@@ -40,7 +40,7 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
   protected $dateFormatter;
 
   /**
-   * Constructs a new LightboxRevisionRevertForm.
+   * Constructs a new ModalRevisionRevertForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
    *   The Modal storage.
@@ -48,7 +48,7 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
    *   The date formatter service.
    */
   public function __construct(EntityStorageInterface $entity_storage, DateFormatterInterface $date_formatter) {
-    $this->LightboxStorage = $entity_storage;
+    $this->ModalStorage = $entity_storage;
     $this->dateFormatter = $date_formatter;
   }
 
@@ -66,7 +66,7 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'lightbox_revision_revert_confirm';
+    return 'modal_revision_revert_confirm';
   }
 
   /**
@@ -100,8 +100,8 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $lightbox_revision = NULL) {
-    $this->revision = $this->LightboxStorage->loadRevision($lightbox_revision);
+  public function buildForm(array $form, FormStateInterface $form_state, $modal_revision = NULL) {
+    $this->revision = $this->ModalStorage->loadRevision($modal_revision);
     $form = parent::buildForm($form, $form_state);
 
     return $form;
@@ -130,15 +130,15 @@ class LightboxRevisionRevertForm extends ConfirmFormBase {
   /**
    * Prepares a revision to be reverted.
    *
-   * @param \Drupal\lightbox\Entity\LightboxInterface $revision
+   * @param \Drupal\modal\Entity\ModalInterface $revision
    *   The revision to be reverted.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current state of the form.
    *
-   * @return \Drupal\lightbox\Entity\LightboxInterface
+   * @return \Drupal\modal\Entity\ModalInterface
    *   The prepared revision ready to be stored.
    */
-  protected function prepareRevertedRevision(LightboxInterface $revision, FormStateInterface $form_state) {
+  protected function prepareRevertedRevision(ModalInterface $revision, FormStateInterface $form_state) {
     $revision->setNewRevision();
     $revision->isDefaultRevision(TRUE);
     $revision->setRevisionCreationTime(REQUEST_TIME);
