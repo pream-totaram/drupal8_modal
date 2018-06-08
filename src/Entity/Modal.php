@@ -261,6 +261,40 @@ class Modal extends RevisionableContentEntityBase implements ModalInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['right_sidebar_content'] = BaseFieldDefinition::create('text_long')
+      ->setLabel(t('Right Sidebar Content'))
+      ->setDescription('What do you want the right sidebar to say?')
+      ->setRevisionable(TRUE)
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'text_textarea',
+        'weight' => -4,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['left_sidebar_content'] = BaseFieldDefinition::create('text_long')
+      ->setLabel(t('Left Sidebar Content'))
+      ->setDescription('What do you want the left sidebar to say?')
+      ->setRevisionable(TRUE)
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'text_textarea',
+        'weight' => -4,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Modal is published.'))
