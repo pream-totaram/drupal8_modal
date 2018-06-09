@@ -1,6 +1,6 @@
 name: Modal
 description: A modal which can be customized
-package: PreamTot
+package: Totaram
 type: module
 version: 1.0
 core: 8.x
