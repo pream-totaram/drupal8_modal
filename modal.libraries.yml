@@ -9,13 +9,13 @@ modal:
     - core/drupalSettings
     - core/jquery.once
 
-colorbox:
+jqmodal:
   version: 1.6.4
   css:
     base:
-      css/colorbox.css: {}
+      css/jquery.modal.css: {}
   js:
-    js/colorbox.js: {preprocess: false}
+    js/jquery.modal.js: {preprocess: false}
   dependencies:
     - core/jquery
     - core/drupal

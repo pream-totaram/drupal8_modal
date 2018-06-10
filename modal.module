@@ -1,10 +1,8 @@
 <?php
 
 function modal_page_attachments(&$vars) {
-    if(\Drupal::service('current_route_match')->getRouteName() === 'view.home.page_1') {
-        $vars['#attached']['library'][] = 'modal/colorbox';
-        $vars['#attached']['library'][] = 'modal/modal';
-    }
+      $vars['#attached']['library'][] = 'modal/jqmodal';
+      $vars['#attached']['library'][] = 'modal/modal';
 }
 
 function modal_theme($existing, $type, $theme, $path) {
