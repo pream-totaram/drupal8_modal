@@ -1,0 +1,13 @@
+{
+    "name": "drupal/modal",
+    "description": "Easy to use modal for drupal.",
+    "type": "drupal-module",
+    "license": "GPL-2+",
+    "authors": [
+        {
+            "name": "Pream Totaram",
+            "email": "pream@preamtotaram.com"
+        }
+    ],
+    "require": {}
+}
