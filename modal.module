@@ -8,7 +8,8 @@ function modal_page_attachments(&$vars) {
 function modal_theme($existing, $type, $theme, $path) {
     return [
         'output' => [
-            'variables' => ['var' => null]
+            'template' => 'output',
+            'variables' => ['var' => 'Test']
         ]
     ];
 }
